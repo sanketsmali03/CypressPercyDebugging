@@ -4,20 +4,14 @@ let scrollToBottom = require("scroll-to-bottomjs");
 describe('TodoMVC', function() {
   beforeEach(function() {
     cy.viewport(1024, 768)
-    cy.visit('https://auth.t7r.dev/?response_type=code&client_id=marcoapptestdev-7c1837&scope=info%20accounts%20balance%20cards%20transactions%20direct_debits%20standing_orders%20offline_access&redirect_uri=https://console.t7r.dev/redirect-page&providers=uk-ob-all%20uk-oauth-all')
+    cy.visit('https://prod.adm.com/en-us/')
     
   })
 
   it('Loads the TodoMVC app', function() {
-  cy.wait(25000)
-  cy.percySnapshot("P1",{ widths: TEST_WIDTHS,enableJavaScript: true})
-  cy.contains('Barclays').click(); 
-  cy.wait(50000)
-  cy.percySnapshot("P2",{ widths: TEST_WIDTHS,enableJavaScript: true})
-  cy.contains('Barclays').click();  
-  cy.wait(15000)
+  cy.wait(5000)
   cy.window().then(cyWindow => scrollToBottom({ remoteWindow: cyWindow }));
-  cy.percySnapshot("P3",{ widths: TEST_WIDTHS,enableJavaScript: true})
+  cy.percySnapshot("HOME",{ widths: TEST_WIDTHS,enableJavaScript: true})
   cy.wait(5000)
 
   })
